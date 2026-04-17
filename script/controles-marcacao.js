@@ -12,6 +12,7 @@ const corDaMarcacaoEl = document.querySelector("#cor-da-marcacao");
 
 const radioFormatoRetangularEl = document.querySelector("input[value=formato-retangular]");
 const radioFormatoOvalEl = document.querySelector("input[value=formato-oval]");
+const seletorArquivoEl = document.querySelector("#imagem");
 
 checkBoxEl.addEventListener("change", function (){
     if(checkBoxEl.checked){
@@ -98,3 +99,17 @@ radioFormatoOvalEl.addEventListener("change", function (){
     marcacaoEl.classList.remove("formato-retangular");
     marcacaoEl.classList.add("formato-oval");
 });
+
+seletorArquivoEl.addEventListener("change", function (event){
+    const listaArquivos = event.target.files;
+    console.log(listaArquivos);
+    readImage(listaArquivos[0]);
+});
+
+function readImage(file) {
+    const reader = new FileReader();
+    reader.addEventListener('load', (event) => {
+        imagemFotoAnotada.src = event.target.result;
+    });
+    reader.readAsDataURL(file);
+}
