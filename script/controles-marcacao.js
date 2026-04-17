@@ -7,7 +7,7 @@ const larguraDaMarcacaoEl = document.querySelector("#largura-da-marcacao");
 const alturaDaMarcacaoEl = document.querySelector("#altura-da-marcacao");
 
 const tituloDaMarcacaoEl = document.querySelector("#titulo-da-marcacao");
-const contetudoDaMarcacaoEl = document.querySelector("#conteudo-da-marcacao");
+const conteudoDaMarcacaoEl = document.querySelector("#conteudo-da-marcacao");
 const corDaMarcacaoEl = document.querySelector("#cor-da-marcacao");
 
 const radioFormatoRetangularEl = document.querySelector("input[value=formato-retangular]");
@@ -36,7 +36,7 @@ for(const marcacaoEl of marcacoesEls){
         alturaDaMarcacaoEl.value = parseInt(marcacaoASerSelecionadaEl.style["height"]);
 
         tituloDaMarcacaoEl.value = marcacaoASerSelecionadaEl.dataset.titulo;
-        contetudoDaMarcacaoEl.value = marcacaoASerSelecionadaEl.dataset.conteudo;
+        conteudoDaMarcacaoEl.value = marcacaoASerSelecionadaEl.dataset.conteudo;
         corDaMarcacaoEl.value = marcacaoASerSelecionadaEl.dataset.cor;
 
         let formato = undefined;
@@ -52,37 +52,37 @@ for(const marcacaoEl of marcacoesEls){
     });
 }
 
-xDaMarcacaoEl.addEventListener("change", function (){
+xDaMarcacaoEl.addEventListener("change", function (event){
     const marcacaoEl = document.querySelector(".selecionada");
     marcacaoEl.style["left"] = event.currentTarget.value + "px";
 });
 
-yDaMarcacaoEl.addEventListener("change", function (){
+yDaMarcacaoEl.addEventListener("change", function (event){
     const marcacaoEl = document.querySelector(".selecionada");
     marcacaoEl.style["top"] = event.currentTarget.value + "px";
 });
 
-larguraDaMarcacaoEl.addEventListener("change", function (){
+larguraDaMarcacaoEl.addEventListener("change", function (event){
     const marcacaoEl = document.querySelector(".selecionada");
     marcacaoEl.style["width"] = event.currentTarget.value + "px";
 });
 
-alturaDaMarcacaoEl.addEventListener("change", function (){
+alturaDaMarcacaoEl.addEventListener("change", function (event){
     const marcacaoEl = document.querySelector(".selecionada");
     marcacaoEl.style["height"] = event.currentTarget.value + "px";
 });
 
-tituloDaMarcacaoEl.addEventListener("change", function (){
+tituloDaMarcacaoEl.addEventListener("change", function (event){
     const marcacaoEl = document.querySelector(".selecionada");
     marcacaoEl.dataset.titulo = event.currentTarget.value;
 });
 
-conteudoDaMarcacaoEl.addEventListener("change", function (){
+conteudoDaMarcacaoEl.addEventListener("change", function (event){
     const marcacaoEl = document.querySelector(".selecionada");
     marcacaoEl.dataset.conteudo = event.currentTarget.value;
 });
 
-corDaMarcacaoEl.addEventListener("change", function (){
+corDaMarcacaoEl.addEventListener("change", function (event){
     const marcacaoEl = document.querySelector(".selecionada");
     marcacaoEl.dataset.cor = event.currentTarget.value;
 });
