@@ -10,6 +10,9 @@ const tituloDaMarcacaoEl = document.querySelector("#titulo-da-marcacao");
 const contetudoDaMarcacaoEl = document.querySelector("#conteudo-da-marcacao");
 const corDaMarcacaoEl = document.querySelector("#cor-da-marcacao");
 
+const radioFormatoRetangularEl = document.querySelector("input[value=formato-retangular]");
+const radioFormatoOvalEl = document.querySelector("input[value=formato-oval]");
+
 checkBoxEl.addEventListener("change", function (){
     if(checkBoxEl.checked){
         divFotoAnotadaEl.classList.add("marcacoes-ocultas");
@@ -26,7 +29,7 @@ for(const marcacaoEl of marcacoesEls){
 
         const marcacaoASerSelecionadaEl = event.currentTarget;
         marcacaoASerSelecionadaEl.classList.add("selecionada");
-        
+
         xDaMarcacaoEl.value = parseInt(marcacaoASerSelecionadaEl.style["left"]);
         yDaMarcacaoEl.value = parseInt(marcacaoASerSelecionadaEl.style["top"]);
         larguraDaMarcacaoEl.value = parseInt(marcacaoASerSelecionadaEl.style["width"]);
@@ -48,3 +51,50 @@ for(const marcacaoEl of marcacoesEls){
         formatoEl.checked = true;
     });
 }
+
+xDaMarcacaoEl.addEventListener("change", function (){
+    const marcacaoEl = document.querySelector(".selecionada");
+    marcacaoEl.style["left"] = event.currentTarget.value + "px";
+});
+
+yDaMarcacaoEl.addEventListener("change", function (){
+    const marcacaoEl = document.querySelector(".selecionada");
+    marcacaoEl.style["top"] = event.currentTarget.value + "px";
+});
+
+larguraDaMarcacaoEl.addEventListener("change", function (){
+    const marcacaoEl = document.querySelector(".selecionada");
+    marcacaoEl.style["width"] = event.currentTarget.value + "px";
+});
+
+alturaDaMarcacaoEl.addEventListener("change", function (){
+    const marcacaoEl = document.querySelector(".selecionada");
+    marcacaoEl.style["height"] = event.currentTarget.value + "px";
+});
+
+tituloDaMarcacaoEl.addEventListener("change", function (){
+    const marcacaoEl = document.querySelector(".selecionada");
+    marcacaoEl.dataset.titulo = event.currentTarget.value;
+});
+
+conteudoDaMarcacaoEl.addEventListener("change", function (){
+    const marcacaoEl = document.querySelector(".selecionada");
+    marcacaoEl.dataset.conteudo = event.currentTarget.value;
+});
+
+corDaMarcacaoEl.addEventListener("change", function (){
+    const marcacaoEl = document.querySelector(".selecionada");
+    marcacaoEl.dataset.cor = event.currentTarget.value;
+});
+
+radioFormatoRetangularEl.addEventListener("change", function (){
+    const marcacaoEl = document.querySelector(".selecionada");
+    marcacaoEl.classList.remove("formato-oval");
+    marcacaoEl.classList.add("formato-retangular")
+});
+
+radioFormatoOvalEl.addEventListener("change", function (){
+    const marcacaoEl = document.querySelector(".selecionada");
+    marcacaoEl.classList.remove("formato-retangular");
+    marcacaoEl.classList.add("formato-oval");
+});
